@@ -15,7 +15,10 @@ app.get("/budgets", (req,res) => {
     res.render("index.ejs",{Budget})
 })
 
-
+//Show route for individual expenses
+app.get("/budgets/show/:id", (req,res) => {
+    res.render("show.ejs",{purchase:Budget[req.params.id]})
+})
 
 //listeners
 app.listen(PORT, ()=>console.log(`Its go time! listening on ${PORT}`) )
