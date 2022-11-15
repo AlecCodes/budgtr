@@ -2,11 +2,17 @@ require("dotenv").config();
 const express = require('express')
 const app = express();
 const PORT = process.env.PORT;
+const Budget = require('./models/budget')
+
+////////////////////////////////////////////?
+//Middleware
+////////////////////////////////////////////?
+app.use("/static", express.static("public"))
 
 
 //Index route
 app.get("/budgets", (req,res) => {
-    res.send('INDEX PAGE')
+    res.render("index.ejs",{Budget})
 })
 
 

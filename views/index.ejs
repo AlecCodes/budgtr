@@ -1,0 +1,26 @@
+<html>
+    <%- include('./partials/head.ejs')  %> 
+    <body>
+        <h1>BUDGTR ALL</h1>
+        <div class = "container" >
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Name</th>
+                    <th>From</th>
+                    <th>Amount</th>
+                    <th>Tags</th>
+                </tr>
+                <% for (let i = 0; i < Budget.length; i++) { %>
+                    <tr>
+                        <td><%= Budget[i].date %></td>
+                        <td><%= Budget[i].name %></td>
+                        <td><%= Budget[i].from %></td>
+                        <td><%= Budget[i].amount %></td>
+                        <td><%= Budget[i].tags %></td>
+                    </tr>
+                <% } %> 
+            </table>
+        </div>        
+    </body>
+</html>
