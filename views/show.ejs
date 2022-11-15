@@ -1,8 +1,15 @@
 <html>
-    <%- include("./partials/head.ejs")  %>
+    <%- include('./partials/head.ejs')  %>
+    <h1>h1</h1>
     <body>
+        <h1>yoo</h1>
         <div class = "container">
             <h1><%= purchase.name %></h1>
+            <h1><%= purchase.date %></h1>
+            <h1><%= purchase.from %></h1>
+            <h1><%= purchase.amount %></h1>
+            <h1><%= purchase.tags %></h1>
+            <a href ="/budgets"><button>Back</button></a>
         </div>
     </body> 
 </html>

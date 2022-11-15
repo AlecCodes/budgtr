@@ -10,14 +10,19 @@ const Budget = require('./models/budget')
 app.use("/static", express.static("public"))
 
 
-//Index route
-app.get("/budgets", (req,res) => {
-    res.render("index.ejs",{Budget})
-})
-
 //Show route for individual expenses
 app.get("/budgets/show/:id", (req,res) => {
     res.render("show.ejs",{purchase:Budget[req.params.id]})
+})
+
+//Index route
+app.get("/budgets/", (req,res) => {
+    res.render("index.ejs",{Budget})
+})
+
+//NEW route
+app.get("/budgets/new",(req,res) => {
+    res.render("new.ejs")
 })
 
 //listeners
