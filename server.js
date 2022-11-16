@@ -4,7 +4,6 @@ const app = express();
 const PORT = process.env.PORT;
 const Budget = require('./models/budget')
 const morgan = require('morgan')
-let account = 0
 
 
 
@@ -18,7 +17,7 @@ app.use(express.urlencoded({extended:true})) //parse data from form submission
 
 //Index route
 app.get("/budgets/", (req,res) => {
-    res.render("index.ejs",{Budget:Budget,account:account})
+    res.render("index.ejs",{Budget:Budget})
 })
 
 //NEW route

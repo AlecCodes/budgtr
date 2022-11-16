@@ -3,16 +3,19 @@
     <%- include('./partials/head.ejs')  %> 
     <body>
         <h1>BUDGTR ALL</h1>
+        <% let total = 0 %> 
         <% for (expense of Budget) {%>
-            <% account += Number(expense.amount) %>
+            <% total += Number(expense.amount) %>
         <% } %> 
-        <div id="account">Bank Account: <%= account %></div>
+        <div id="account">Bank Account: <%= total %></div>
+        <!-- ADDING THE COLOR CHANGING FUNCTION -->
         <script>
-            console.log(account)
-            if (account < 0){
-                const bankAccount = document.getElementById('account')
-                bankAccount.style.color = 'red';
-                console.log('Low!')
+        const bankAccount = document.getElementById('account')
+        console.log(bankAccount.style)
+            if (<%= total %> < 0){
+                bankAccount.style.backgroundColor = 'red';
+            }else if (<%=total%> > 1000){
+                bankAccount.style.backgroundColor = 'green'
             }
         </script> 
         <div class = "container" >
