@@ -1,7 +1,20 @@
+<!DOCTYPE html>
 <html>
     <%- include('./partials/head.ejs')  %> 
     <body>
         <h1>BUDGTR ALL</h1>
+        <% for (expense of Budget) {%>
+            <% account += Number(expense.amount) %>
+        <% } %> 
+        <div id="account">Bank Account: <%= account %></div>
+        <script>
+            console.log(account)
+            if (account < 0){
+                const bankAccount = document.getElementById('account')
+                bankAccount.style.color = 'red';
+                console.log('Low!')
+            }
+        </script> 
         <div class = "container" >
             <table>
                 <tr>
@@ -14,13 +27,14 @@
                 <% for (let i = 0; i < Budget.length; i++) { %>
                     <tr>
                         <td><%= Budget[i].date %></td>
-                        <td><a href = "/budgets/show/<%=i%>"><%= Budget[i].name %></a></td>
+                        <td><a href = "/budgets/<%=i%>"><%= Budget[i].name %></a></td>
                         <td><%= Budget[i].from %></td>
                         <td><%= Budget[i].amount %></td>
                         <td><%= Budget[i].tags %></td>
                     </tr>
                 <% } %> 
             </table>
-        </div>        
+        </div>
+        <a href ="/budgets/new"><button>new</button></a>       
     </body>
 </html>
